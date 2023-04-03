@@ -1,4 +1,4 @@
-//포켓몬
+//시간초과 ㅠㅠ
 package b;
 
 import java.io.BufferedReader;

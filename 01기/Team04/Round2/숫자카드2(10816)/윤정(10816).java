@@ -1,5 +1,5 @@
 package Round02;
-
+//시간초과
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;

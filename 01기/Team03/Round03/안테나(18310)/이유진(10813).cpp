@@ -5,7 +5,7 @@ using namespace std;
 
 int main()
 {
-	//½Ã°£ÃÊ°ú¸¦ ÇØ°áÇØÁØ´Ù.  
+	//ì‹œê°„ì´ˆê³¼ë¥¼ í•´ê²°í•´ì¤€ë‹¤.  
 	ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     cout.tie(NULL);
@@ -14,19 +14,18 @@ int main()
 	cin >> N; 
 	vector<int> home; 
 	 
-	//ÀÔ·Â¹ŞÀ» ÁıÀÇ °³¼ö. 
+	//ì…ë ¥ë°›ì„ ì§‘ì˜ ê°œìˆ˜. 
 	for(int i=0; i<N; i++)
 	{
 		int input;
 		cin >> input; 
 		home.push_back(input);
 	} 
-	//º¤ÅÍ¸¦ ÀÌ¿ëÇØ Á¤·ÄÇØÁØ´Ù. 
+	//ë²¡í„°ë¥¼ ì´ìš©í•´ ì •ë ¬í•´ì¤€ë‹¤. 
 	sort(home.begin(), home.end()); 
 	
-	// []¾È¿¡ ¼Ò¼ö µé¾î°¥½Ã ÀÚµ¿À¸·Î ¶¼ÁÜ. 
-	cout << home[(N - 1) / 2];
+	if(N%2==0) cout << home[(N - 2) / 2];
+	
+	else cout << home[(N - 1) / 2];
 
 }
-    
-  

@@ -13,10 +13,7 @@ int main() {
 
     int n; cin >> n;
     for (int i = 0; i < n; i++) {
-        int tmp; cin >> tmp;
-        if (arr.find(tmp) != arr.end()) {
-            arr[tmp]++;
-            continue;
+        arr[tmp]++;
         }
         arr.insert({ tmp, 1 });
     }

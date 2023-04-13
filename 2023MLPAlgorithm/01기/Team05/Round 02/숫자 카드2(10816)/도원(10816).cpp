@@ -1,32 +1,22 @@
 #include <iostream>
-#include <vector>
+#include <unordered_map>
+
 using namespace std;
 
+unordered_map <int, int> m;
+int N, M, card;
+
 int main() {
-    int n, m;
-    cin >> n; 
-    vector<int> cards(n);
-    for (int i = 0; i < n; i++) {
-        cin >> cards[i]; 
-    }
-
-    cin >> m; 
-    vector<int> nums(m);
-    for (int i = 0; i < m; i++) {
-        cin >> nums[i]; 
-    }
-
-    
-    vector<int> count(10001, 0);
-
-    for (int i = 0; i < n; i++) {
-        count[cards[i]]++;
-    }
-
-   
-    for (int i = 0; i < m; i++) {
-        cout << count[nums[i]] << ' ';
-    }
-
-    return 0;
+	ios::sync_with_stdio(false);
+	cin.tie(0);
+	cin >> N;
+	for (int i = 0; i < N; i++) {
+		cin >> card;
+		m[card]++;
+	}
+	cin >> M;
+	for (int i = 0; i < M; i++) {
+		cin >> card;
+		cout << m[card] << " ";
+	}
 }

@@ -1,0 +1,28 @@
+#include <iostream>
+#include <set>
+using namespace std;
+
+int main()
+{
+    set<int> s; // set 컨테이너 객체 s 생성
+    int n, m, num; // n, m, num 정의
+    cin >> n >> m; // n과 m을 입력받음
+
+    for (int i = 0; i < n; i++) // n번 반복하는 for 루프 시작
+    {
+        cin >> num; // num을 입력받음
+        s.insert(num); // s에 num을 삽입
+    }
+
+    for (int i = 0; i < m; i++) // m번 반복하는 for 루프 시작
+    {
+        cin >> num; // num을 입력받음
+        if (s.find(num) == s.end()) // s에서 num을 찾지 못했다면
+            s.insert(num); // s에 num을 삽입
+        else // s에서 num을 찾았다면
+            s.erase(num); // s에서 num을 제거
+    }
+
+    cout << s.size(); // s의 크기를 출력
+    return 0;
+}

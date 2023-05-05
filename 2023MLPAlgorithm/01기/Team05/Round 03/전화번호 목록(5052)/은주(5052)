@@ -1,0 +1,67 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+#define endl "\n"
+
+using namespace std;
+
+int main()
+{
+	ios::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+	
+	int t, n;
+	string num;
+
+	cin >> t;
+	vector<string> answer(t+10);
+	
+	for(int i = 0; i < t; i++)
+	{
+		cin >> n;
+		
+		vector<string> arr(n+10);
+		
+		
+		for(int j = 0; j < n; j++)
+		{
+			cin >> arr[j];	// 전화번호 목록  
+		}
+		
+		sort(arr.begin(),arr.end());
+		
+		for(int j = 10; j < n+9; j++)
+		{	
+			if(arr[j] >= arr[j+1])
+			{
+				continue;
+			}
+
+			if(arr[j] == arr[j+1].substr(0,arr[j].length()))	// 일관성이 있는 목록  
+			{
+				answer[i] = "1";
+				break;
+			}
+			else
+			{
+				answer[i] = "0";
+			}
+		}
+		arr.clear(); 
+	}
+	
+	
+	for(int i = 0; i < t; i++)
+	{
+		if(answer[i] == "1")	// 일관성이 없는 목록  
+		{
+			cout << "NO" << endl;
+		}
+		else
+		{
+			cout << "YES" << endl;
+		}
+	}
+	
+	return 0;
+	
+}

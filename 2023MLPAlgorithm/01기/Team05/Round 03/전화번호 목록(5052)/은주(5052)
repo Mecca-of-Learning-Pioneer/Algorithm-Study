@@ -36,7 +36,7 @@ int main()
 				continue;
 			}
 
-			if(arr[j] == arr[j+1].substr(0,arr[j].length()))	// 일관성이 있는 목록  
+			if(arr[j] == arr[j+1].substr(0,arr[j].length()))	// 일관성이 없는 목록  
 			{
 				answer[i] = "1";
 				break;

@@ -1,0 +1,52 @@
+#include <deque>
+#include <iostream>
+#include <algorithm>
+#include <sstream>
+#include <string>
+using namespace std;
+
+bool solution(deque<int>& dq, string& func){
+    bool rev = false; // true : back에서, false : front에서
+    for(char& fun : func) {
+        if (fun == 'R') rev = !rev;
+        else {
+            if (dq.size() == 0) return false;
+
+            if (rev) dq.pop_back();
+            else dq.pop_front();
+        }
+    }
+    if (rev) reverse(dq.begin(), dq.end()); 
+    return true;
+}
+
+int main () {
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    
+    deque<int> dq;
+    string func, input, token;
+    int tcase, cnt;
+
+    cin >> tcase;
+    while(tcase--) {
+        cin >> func >> cnt >> input;
+        
+        rotate(input.begin(), input.begin() + 1, input.end()); // 시계방향 1칸 회전 
+        input.pop_back(); input.pop_back(); 
+        stringstream ss(input);
+        while(getline(ss, token, ','))
+            dq.push_back(stoi(token)); 
+
+        if(solution(dq, func)) {
+            cout << '[';
+            while(!dq.empty()) {
+                cout << dq.front();
+                dq.pop_front();
+                if (dq.size() >= 1) cout << ',';
+            }
+            cout << "]\n";
+        } 
+        else cout << "error\n";
+    }
+}

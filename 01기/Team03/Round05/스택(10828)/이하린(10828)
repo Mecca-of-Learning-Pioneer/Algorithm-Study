@@ -1,0 +1,57 @@
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+
+
+vector<int> v;
+int N;
+
+void push(int a){
+    v.push_back(a);
+}
+
+void top(){
+    if(!v.empty()) cout<<v.back()<<'\n';
+    else cout<<-1<<'\n';
+}
+
+void size(){
+    if(!v.empty()) cout<<v.size()<<'\n';
+    else cout<<0<<'\n';
+}
+
+void pop(){
+    top();
+    if(!v.empty()) v.pop_back();
+}
+
+void empty(){
+    cout<<v.empty()<<'\n';
+}
+
+
+int main(){
+    ios::sync_with_stdio(false);
+    cin.tie();
+    cout.tie();
+    
+    cin>>N;
+    cin.ignore();
+    for(int i=0;i<N;i++){
+        string str;
+        getline(cin, str);
+        
+        if(str=="top") top();
+        else if(str=="size") size();
+        else if(str=="pop") pop();
+        else if(str=="empty") empty();
+        else{
+            string value=str.substr(5);
+            int val=stoi(value);
+            push(val);
+        }
+    
+    }
+
+}

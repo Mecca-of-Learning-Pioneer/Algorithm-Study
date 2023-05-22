@@ -1,0 +1,44 @@
+#include <iostream>
+#include <stack>
+using namespace std;
+
+
+int main(){
+    ios::sync_with_stdio();
+    cin.tie();
+    cout.tie();
+
+    int N;
+    cin>>N;
+    cin.ignore();
+
+    for(int i=0;i<N;i++){
+        stack<char> vps;
+        int count=0;
+        int Lcount=0;
+        int Rcount=0;
+        bool flag=true;
+ 
+        string input;
+        getline(cin, input);
+
+        for(char ch:input){
+            vps.push(ch);
+        }
+
+        while(!vps.empty()){
+            if(vps.top()=='(') {count--;  Lcount++;}
+            else {count++; Rcount++;}
+
+            if(count<0){
+                flag=false;
+                break;
+            }
+
+            vps.pop();
+        }
+        if(flag==true&&Lcount==Rcount)  cout<<"YES"<<'\n';
+        else cout<<"NO"<<'\n';
+    }
+
+}

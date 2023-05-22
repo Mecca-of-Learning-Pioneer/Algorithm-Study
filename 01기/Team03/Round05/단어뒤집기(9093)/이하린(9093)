@@ -1,0 +1,51 @@
+#include <iostream>
+#include <stack>
+#include <queue>
+using namespace std;
+
+int main(){
+    ios::sync_with_stdio(false);
+    cin.tie();
+    cout.tie();
+    
+    int N;
+    cin>>N;
+    cin.ignore();
+
+    for(int i=0; i<N; i++){
+        stack<char> cst;
+        stack<string> sst;
+
+        string input;
+        string token;
+
+        getline(cin, input);
+
+        for(char ch:input){
+            cst.push(ch);
+        }
+
+        while(!cst.empty()){
+            if(cst.top()!=' '){
+                token+=cst.top();
+                cst.pop();
+            }
+            else{
+                sst.push(token);
+                sst.push(" ");
+                token="";
+                cst.pop();
+            }
+
+            if(token!=""&&cst.size()==0){
+                sst.push(token);
+            }
+        }
+
+        while(!sst.empty()){
+            cout<<sst.top();
+            sst.pop();
+        }cout<<"\n";
+
+    }
+}
